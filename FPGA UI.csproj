@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="FPGA communication\" />
+    <Folder Include="FPGA communication\UART\" />
   </ItemGroup>
 
 </Project>
