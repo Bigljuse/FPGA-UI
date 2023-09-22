@@ -29,24 +29,7 @@ namespace FPGA_UI
         private void Button_Change_Colour_Click(object sender, RoutedEventArgs e)
         {
             SerialPortController serialPortController = new SerialPortController();
-            string[] portsNames = new string[2] { "Haaha", "VLados"};
-
-            string text = String.Empty;
-
-            for (int i = 0; i < portsNames.Count(); i++)
-            {
-                string portName = portsNames[i];
-                text += portName;
-            }
-
-            text = string.Empty;
-
-            foreach (string portName in portsNames)
-            {
-                text += portName;
-            }
-
-            MessageBox.Show(text);
+            serialPortController.Hello_Method();
         }
     }
 }
