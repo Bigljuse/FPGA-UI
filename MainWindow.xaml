@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="Button_Change_Colour" Click="Button_Change_Colour_Click"> 
+            
+            <Label Content="Label" Background="White" Height="34" Width="42"/>
+        </Button>
 
     </Grid>
 </Window>

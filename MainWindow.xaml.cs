@@ -24,5 +24,10 @@ namespace FPGA_UI
         {
             InitializeComponent();
         }
+
+        private void Button_Change_Colour_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
