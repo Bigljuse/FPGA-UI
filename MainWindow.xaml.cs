@@ -1,4 +1,5 @@
-﻿using FPGA_UI.FPGA_communication;
+﻿using FPGA_UI.DataBases;
+using FPGA_UI.FPGA_communication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,8 @@ namespace FPGA_UI
 
         private void Button_Change_Colour_Click(object sender, RoutedEventArgs e)
         {
-            SerialPortController serialPortController = new SerialPortController();
-            serialPortController.Hello_Method();
+            DataBaseConfiguration fPGADataBaseManager = new DataBaseConfiguration();
+            fPGADataBaseManager.CreateDataBaseIfNotExists(DataBases.DataBasesNamesEnum.FPGA);
         }
     }
 }
