@@ -1,13 +1,20 @@
-﻿namespace FPGA_UI.DataBases.FPGA.Tables
+﻿using System;
+
+namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class Bluetooth
+    public class Bluetooth : IFPGATableColumn
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
 
-        public bool Connectioned_To_Device { get; set; }
-        
-        public string Mac_Address { get; set; }
+        public bool Connectioned_To_Device { get; set; } = false;
 
-        public int Device_Id { get; set; }
+        public string Mac_Address { get; set; } = "Empty";
+
+        public int Device_Id { get; set; } = 0;
+
+        public Type GetTypeOfColumn()
+        {
+            return this.GetType();
+        }
     }
 }

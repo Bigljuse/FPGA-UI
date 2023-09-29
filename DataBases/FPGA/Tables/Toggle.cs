@@ -1,11 +1,20 @@
-﻿namespace FPGA_UI.DataBases.FPGA.Tables
+﻿using System;
+
+namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class Toggle
+    public class Toggle : IFPGATableColumn
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
 
-        public string Mark { get; set; }
+        public string Mark { get; set; } = "Empty";
 
-        public int Device_Id { get; set; }
+        public bool Toggled { get; set; } = false;
+
+        public int Device_Id { get; set; } = 0;
+
+        public Type GetTypeOfColumn()
+        {
+            return this.GetType();
+        }
     }
 }

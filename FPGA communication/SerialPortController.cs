@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Ports;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FPGA_UI.FPGA_communication
 {
@@ -20,7 +15,7 @@ namespace FPGA_UI.FPGA_communication
 
             List<string> usbStrings = new List<string>();
 
-            foreach(var obj in usbQueryCollection)
+            foreach (var obj in usbQueryCollection)
             {
                 usbStrings.Add(obj.ToString());
             }

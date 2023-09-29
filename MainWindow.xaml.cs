@@ -1,19 +1,8 @@
 ﻿using FPGA_UI.DataBases;
-using FPGA_UI.FPGA_communication;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FPGA_UI.DataBases.FPGA;
+using FPGA_UI.DataBases.FPGA.Tables;
+using MySqlLibrary;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FPGA_UI
 {
@@ -29,8 +18,17 @@ namespace FPGA_UI
 
         private void Button_Change_Colour_Click(object sender, RoutedEventArgs e)
         {
-            DataBaseConfiguration fPGADataBaseManager = new DataBaseConfiguration();
-            fPGADataBaseManager.CreateDataBaseIfNotExists(DataBases.DataBasesNamesEnum.FPGA);
+            string dataBaseName = DataBasesNamesEnum.FPGA.ToString();
+
+            MySqlDBConfiguration mySqlDBConfiguration = new MySqlDBConfiguration("server=localhost;user=root;port=3306;password=(E132450qwe)");
+            //mySqlDBConfiguration.ReCreateDataBase(dataBaseName);
+            mySqlDBConfiguration.UseDataBase(dataBaseName);
+
+            FPGATablesConfiguration fPGATablesConfiguration = new FPGATablesConfiguration(mySqlDBConfiguration);
+            fPGATablesConfiguration.CreateTablesIfNotExist();
+
+            FPGATablesMethods fPGATablesMethods = new FPGATablesMethods(mySqlDBConfiguration, FPGATablesEnum.Port);
+            fPGATablesMethods.InsertLine(new Port() { Device_Type = "Poka", Power_State = true });
         }
     }
 }

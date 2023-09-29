@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FPGA_UI.DataBases.FPGA
 {
-    internal static class FPGATablesTypesDictionary
+    internal static class FPGATablesClassTypesDictionary
     {
         public static Dictionary<FPGATablesEnum, Type> TablesTypesDictionary = new Dictionary<FPGATablesEnum, Type>()
         {
