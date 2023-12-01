@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySqlLibrary.MySql.Models;
+using System;
 
 namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class Temperature_Module : IFPGATableColumn
+    public class Temperature_Module : IFPGATable
     {
-        public int Id { get; set; } = 0;
+        public UInt32 Id { get; set; }
 
         public string Request_Time { get; set; } = "Empty";
 
@@ -17,10 +18,5 @@ namespace FPGA_UI.DataBases.FPGA.Tables
         public int Device_Id { get; set; } = 0;
 
         public int UART_Id { get; set; } = 0;
-
-        public Type GetTypeOfColumn()
-        {
-            return this.GetType();
-        }
     }
 }

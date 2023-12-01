@@ -1,4 +1,5 @@
 ﻿using FPGA_UI.DataBases.FPGA;
+using FPGA_UI.DataBases.FPGA.Enums;
 using MySqlLibrary;
 using MySqlLibrary.MySql.Commands.CREATE;
 using MySqlLibrary.MySql.Commands.DROP;
@@ -12,9 +13,9 @@ namespace FPGA_UI.DataBases
 {
     internal class FPGATablesConfiguration
     {
-        private MySqlDBConfiguration _mySqlConfiguration;
+        private MySqlDatabaseConfiguration _mySqlConfiguration;
 
-        internal FPGATablesConfiguration(MySqlDBConfiguration dataBaseConfiguration)
+        internal FPGATablesConfiguration(MySqlDatabaseConfiguration dataBaseConfiguration)
         {
             _mySqlConfiguration = dataBaseConfiguration;
         }
@@ -46,13 +47,15 @@ namespace FPGA_UI.DataBases
 
         private void CreateMissingTables(List<string> tablesNames)
         {
-            List<string> missingTablesNames = GetMissingTables(tablesNames);
+            List<FPGATables> missingTables = GetMissingTables(tablesNames);
             MySqlColumnModel[] mySqlColumnsModel;
+            string tableName;
 
-            foreach (string missingTableName in missingTablesNames)
+            foreach (FPGATables tableNameEnum in missingTables)
             {
-                mySqlColumnsModel = FPGATablesColumnsDictionary.MySqlColumns[missingTableName];
-                MySqlCreateTable.Execute(_mySqlConfiguration, missingTableName, mySqlColumnsModel);
+                tableName = tableNameEnum.ToString();
+                mySqlColumnsModel = FPGATablesDictionaries.GetTableColumns(tableNameEnum);
+                MySqlCreateTable.Execute(_mySqlConfiguration, tableName, mySqlColumnsModel);
             }
         }
 
@@ -67,7 +70,7 @@ namespace FPGA_UI.DataBases
         private List<string> GetUnidentifiedTables(List<string> receivedTableNames)
         {
             List<string> unidentifiedTablesNames = new List<string>();
-            string[] tablesNames = Enum.GetNames(typeof(FPGATablesEnum));
+            string[] tablesNames = Enum.GetNames(typeof(FPGATables));
             string receivedTableName;
 
             for (int counter = 0; counter < receivedTableNames.Count; counter++)
@@ -84,21 +87,23 @@ namespace FPGA_UI.DataBases
             return unidentifiedTablesNames;
         }
 
-        private List<string> GetMissingTables(List<string> receivedTableNames)
+        private List<FPGATables> GetMissingTables(List<string> receivedTableNames)
         {
-            List<string> missingTablesNames = new List<string>();
-            string[] tablesNames = Enum.GetNames(typeof(FPGATablesEnum));
+            List<FPGATables> listOfMissingTables = new();
+            int lengthOfTableNamesInEnum = Enum.GetNames(typeof(FPGATables)).Length;
+            FPGATables tableNameEnum;
             string tableName;
 
-            for (int counter = 0; counter < tablesNames.Length; counter++)
+            for (int counter = 0; counter < lengthOfTableNamesInEnum; counter++)
             {
-                tableName = tablesNames[counter].ToLower();
+                tableNameEnum = (FPGATables)counter;
+                tableName = tableNameEnum.ToString().ToLower();
 
                 if (receivedTableNames.Contains(tableName) == false)
-                    missingTablesNames.Add(tableName);
+                    listOfMissingTables.Add(tableNameEnum);
             }
 
-            return missingTablesNames;
+            return listOfMissingTables;
         }
     }
 }

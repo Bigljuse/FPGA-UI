@@ -1,20 +1,16 @@
-﻿using System;
+﻿using MySqlLibrary.MySql.Models;
+using System;
 
 namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class Button : IFPGATableColumn
+    public class Button : IFPGATable
     {
-        public int Id { get; set; } = 0;
+        public UInt32 Id { get; set; }
 
         public bool State { get; set; } = false;
 
         public string Mark { get; set; } = "Empty";
 
         public int Device_Id { get; set; } = 0;
-
-        public Type GetTypeOfColumn()
-        {
-            return this.GetType();
-        }
     }
 }

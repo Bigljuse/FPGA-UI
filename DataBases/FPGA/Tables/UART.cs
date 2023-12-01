@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySqlLibrary.MySql.Models;
+using System;
 
 namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class UART : IFPGATableColumn
+    public class UART : IFPGATable
     {
-        public int Id { get; set; } = 0;
+        public UInt32 Id { get; set; }
 
         public int Baud { get; set; } = 9600;
 
@@ -15,10 +16,5 @@ namespace FPGA_UI.DataBases.FPGA.Tables
         public bool Hand_Shake { get; set; } = false;
 
         public int Package_Size { get; set; } = 8;
-
-        public Type GetTypeOfColumn()
-        {
-            return this.GetType();
-        }
     }
 }

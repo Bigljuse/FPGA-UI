@@ -3,14 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FPGA_UI"
+        xmlns:local="clr-namespace:FPGA_UI.Elements"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="450"
+        Width="700"
+        MinWidth="700"
+        MinHeight="480"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button x:Name="Button_Change_Colour" Click="Button_Change_Colour_Click"> 
-            
-            <Label Content="Label" Background="White" Height="34" Width="42"/>
-        </Button>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="66"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button Name="Button_ShowDataInUI" 
+                    Grid.Row="0"
+                    Height="{Binding Path=ActualWidth, ElementName=Button_ShowDataBaseEditor}"
+                    BorderThickness="0,0,0,2"
+                    BorderBrush="Black"
+                    Click="Button_ShowDataInUI_Click"
+                    Content="Плата">
+            </Button>
+            <Button Name="Button_ShowUART" 
+                    Grid.Row="2"
+                    Height="{Binding Path=ActualWidth, ElementName=Button_ShowDataBaseEditor}"
+                    BorderThickness="0,2,0,0"
+                    BorderBrush="Black"
+                    IsEnabled="False"
+                    Click="Button_ShowUART_Click">
+                <TextBlock Text="UART" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Name="Button_ShowDataBaseEditor" 
+                    Grid.Row="3"
+                    Height="{Binding Path=ActualWidth, ElementName=Button_ShowDataBaseEditor}"
+                    BorderThickness="0,2,0,0"
+                    BorderBrush="Black"                    
+                    IsEnabled="False"
+                    Click="Button_ShowDataBaseEditor_Click">
+                <TextBlock Text="База данных" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Name="Button_Authorization" 
+                    Grid.Row="4"
+                    Height="{Binding Path=ActualWidth, ElementName=Button_ShowDataBaseEditor}"
+                    BorderThickness="0,2,0,0"
+                    BorderBrush="Black"
+                    Click="Button_Authorization_Click">
+                <TextBlock Text="Авторизация" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+        </Grid>
+        <Border Grid.Column="1" Width="2" Background="Black" Margin="0,0,0,0"/>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                <Grid>
+                    <local:UseProfile HorizontalAlignment="Right" Margin="0,3,3,3"/>
+                </Grid>
+            </Border>
+            <Frame Name="NavigationWindow_Pages" 
+                    Grid.Row="1"
+                    Margin="2"
+                    NavigationUIVisibility="Hidden"
+                    Source="" >
+            </Frame>
+        </Grid>
     </Grid>
 </Window>

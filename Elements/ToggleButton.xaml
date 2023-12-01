@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="FPGA_UI.Elements.ToggleButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FPGA_UI.Elements"
+             mc:Ignorable="d"
+             Width="30"
+             Height="80"
+             VerticalAlignment="Top"
+             BorderBrush="Transparent"
+             BorderThickness="0"
+             Margin="1,0,1,0">
+    <Grid Background="Gray">
+        <Border BorderThickness="1" BorderBrush="Black">
+            <Grid>
+                <TextBlock Text="0" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                <Rectangle Stroke="Black" Width="20" Height="55" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                <Rectangle Name="Rectangle_BlackToggle" Grid.Row="0" Stroke="Black" Width="20" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Fill="Black"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

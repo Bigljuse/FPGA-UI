@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySqlLibrary.MySql.Models;
+using System;
 
 namespace FPGA_UI.DataBases.FPGA.Tables
 {
-    public class Device : IFPGATableColumn
+    public class Device : IFPGATable
     {
-        public int Id { get; set; } = 0;
+        public UInt32 Id { get; set; }
 
         public int Address { get; set; } = 0;
 
@@ -13,10 +14,5 @@ namespace FPGA_UI.DataBases.FPGA.Tables
         public int Memory_Size { get; set; } = 0;
 
         public int Port_Type_Id { get; set; } = 0;
-
-        public Type GetTypeOfColumn()
-        {
-            return this.GetType();
-        }
     }
 }
