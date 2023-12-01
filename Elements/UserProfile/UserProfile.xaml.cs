@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace FPGA_UI.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для UseProfile.xaml
+    /// Логика взаимодействия для UserProfile.xaml
     /// </summary>
-    public partial class UseProfile : UserControl
+    public partial class UserProfile : UserControl
     {
-        public UseProfile()
+        public UserProfile()
         {
             InitializeComponent();
+            DataContext = this;
         }
     }
 }

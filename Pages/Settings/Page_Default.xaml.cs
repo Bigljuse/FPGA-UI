@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace FPGA_UI.Pages.Settings
+namespace FPGA_UI.Pages
 {
     /// <summary>
     /// Interaction logic for Page_Default.xaml

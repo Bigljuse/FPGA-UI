@@ -1,6 +1,6 @@
 ﻿namespace FPGA_UI.DataBases.FPGA.Enums
 {
-    enum FPGATables
+    public enum FPGATables
     {
         Port,
         Device,

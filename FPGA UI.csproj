@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Folder Include="FPGA communication\UART\" />
-    <Folder Include="Windows\NewFolder\" />
+    <Folder Include="Windows\MainWindow\Properties\" />
   </ItemGroup>
 
   <ItemGroup>

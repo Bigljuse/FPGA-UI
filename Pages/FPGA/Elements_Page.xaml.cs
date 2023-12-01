@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FPGA_UI.Elements
+namespace FPGA_UI.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ToggleButton.xaml
+    /// Логика взаимодействия для Elements_Page.xaml
     /// </summary>
-    public partial class ToggleButton : UserControl
+    public partial class Elements_Page : Page
     {
-        public ToggleButton()
+        public Elements_Page()
         {
             InitializeComponent();
         }

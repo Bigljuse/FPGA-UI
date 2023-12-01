@@ -1,4 +1,4 @@
-﻿<Page x:Class="FPGA_UI.Pages.Default.Elements_Page"
+﻿<Page x:Class="FPGA_UI.Pages.Elements_Page"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,24 +28,24 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <local:ToggleButton Grid.Column="0"/>
-            <local:ToggleButton Grid.Column="1"/>
-            <local:ToggleButton Grid.Column="2"/>
-            <local:ToggleButton Grid.Column="3"/>
-            <local:ToggleButton Grid.Column="4"/>
-            <local:ToggleButton Grid.Column="5"/>
-            <local:ToggleButton Grid.Column="6"/>
-            <local:ToggleButton Grid.Column="7"/>
-            <local:ToggleButton Grid.Column="8"/>
-            <local:ToggleButton Grid.Column="9"/>
-            <local:ToggleButton Grid.Column="10"/>
-            <local:ToggleButton Grid.Column="11"/>
-            <local:ToggleButton Grid.Column="12"/>
-            <local:ToggleButton Grid.Column="13"/>
-            <local:ToggleButton Grid.Column="14"/>
-            <local:ToggleButton Grid.Column="15"/>
+            <local:ToggleButton Grid.Column="0" ButtonNumber="16"/>
+            <local:ToggleButton Grid.Column="1" ButtonNumber="15"/>
+            <local:ToggleButton Grid.Column="2" ButtonNumber="14"/>
+            <local:ToggleButton Grid.Column="3" ButtonNumber="13"/>
+            <local:ToggleButton Grid.Column="4" ButtonNumber="12"/>
+            <local:ToggleButton Grid.Column="5" ButtonNumber="11"/>
+            <local:ToggleButton Grid.Column="6" ButtonNumber="10"/>
+            <local:ToggleButton Grid.Column="7" ButtonNumber="9"/>
+            <local:ToggleButton Grid.Column="8" ButtonNumber="8"/>
+            <local:ToggleButton Grid.Column="9" ButtonNumber="7"/>
+            <local:ToggleButton Grid.Column="10" ButtonNumber="6"/>
+            <local:ToggleButton Grid.Column="11" ButtonNumber="5"/>
+            <local:ToggleButton Grid.Column="12" ButtonNumber="4"/>
+            <local:ToggleButton Grid.Column="13" ButtonNumber="3"/>
+            <local:ToggleButton Grid.Column="14" ButtonNumber="2"/>
+            <local:ToggleButton Grid.Column="15" ButtonNumber="1"/>
         </Grid>
-        
+
 
     </Grid>
 </Page>

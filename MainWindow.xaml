@@ -74,7 +74,7 @@
             </Grid.RowDefinitions>
             <Border BorderThickness="0,0,0,1" BorderBrush="Black">
                 <Grid>
-                    <local:UseProfile HorizontalAlignment="Right" Margin="0,3,3,3"/>
+                    <local:UserProfile x:Name="UserProfile_TopRight" HorizontalAlignment="Right" Margin="0,3,3,3"/>
                 </Grid>
             </Border>
             <Frame Name="NavigationWindow_Pages" 

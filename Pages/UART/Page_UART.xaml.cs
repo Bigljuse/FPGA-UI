@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FPGA_UI.Pages.UART
+namespace FPGA_UI.Pages
 {
     /// <summary>
     /// Логика взаимодействия для Page_UART.xaml

@@ -23,13 +23,12 @@ namespace FPGA_UI.DataBases.FPGA
         internal FPGATableManager GetTableManager(FPGATables tableName)
         {
             if (p_fpgaTableManger is null)
-                p_fpgaTableManger = new(p_mySqlDatabaseConfiguration, FPGATables.Port);
-            else if (p_fpgaTableManger.GetCurrentTable() == tableName)
+                return p_fpgaTableManger = new FPGATableManager(p_mySqlDatabaseConfiguration, tableName);
+            
+            if (p_fpgaTableManger.GetCurrentTable() == tableName)
                 return p_fpgaTableManger;
-            else
-                p_fpgaTableManger = new(p_mySqlDatabaseConfiguration, FPGATables.Port);
 
-            return p_fpgaTableManger;
+            return p_fpgaTableManger = new FPGATableManager(p_mySqlDatabaseConfiguration, tableName);
         }
     }
 }

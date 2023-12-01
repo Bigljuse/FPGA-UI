@@ -1,4 +1,4 @@
-﻿<Page x:Class="FPGA_UI.Pages.Page_TableEditor"
+﻿<Page x:Class="FPGA_UI.Pages.Page_Tables"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,55 +7,61 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page_TableEditor"
+      FontSize="18"
       Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="NavigationUIVisibility" Value="Hidden"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <TabControl>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Port" FontSize="15"/>
+                    <TextBlock Text="Port"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Port" NavigationUIVisibility="Hidden"/>
+                    <Frame Name="Frame_Port" Loaded="Frame_Port_Loaded"/>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Device" FontSize="15"/>
+                    <TextBlock Text="Device"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Device" NavigationUIVisibility="Hidden"/>
+                    <Frame Name="Frame_Device" Loaded="Frame_Device_Loaded"/>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Button" FontSize="15"/>
+                    <TextBlock Text="Button"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Button" NavigationUIVisibility="Hidden"/>
+                    <Frame Name="Frame_Button" Loaded="Frame_Button_Loaded"/>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Bluetooth" FontSize="15"/>
+                    <TextBlock Text="Bluetooth"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Bluetooth" NavigationUIVisibility="Hidden"/>
+                    <Frame  Name="Frame_Bluetooth" Loaded="Frame_Bluetooth_Loaded"/>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Toggle" FontSize="15"/>
+                    <TextBlock Text="Toggle"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Toggle" NavigationUIVisibility="Hidden"/>
+                    <Frame  Name="Frame_Toggle" Loaded="Frame_Toggle_Loaded"/>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Temperature" FontSize="15"/>
+                    <TextBlock Text="Temperature"/>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Frame  Name="Frame_Temperature" NavigationUIVisibility="Hidden"/>
+                    <Frame  Name="Frame_Temperature" Loaded="Frame_Temperature_Loaded"/>
                 </TabItem.Content>
             </TabItem>
         </TabControl>
