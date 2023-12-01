@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FPGA_UI.Elements
+namespace FPGA_UI.Elements.FPGA
 {
     public partial class ToggleButton
     {

@@ -3,13 +3,62 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:FPGA_UI.Elements"
+      xmlns:local="clr-namespace:FPGA_UI.Pages"
+      xmlns:FPGA_Elements="clr-namespace:FPGA_UI.Elements.FPGA"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Elements_Page">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Button" TargetType="FPGA_Elements:Button">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style x:Key="ToggleButton" TargetType="FPGA_Elements:ToggleButton">
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid Background="White">
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <FPGA_Elements:Button Grid.Row="0" Grid.Column="1" Title="Верхняя" Style="{StaticResource Button}"/>
+                <FPGA_Elements:Button Grid.Row="1" Grid.Column="1" Title="Центр" Style="{StaticResource Button}"/>
+                <FPGA_Elements:Button Grid.Row="2" Grid.Column="1" Title="Нижняя" Style="{StaticResource Button}"/>
+                <FPGA_Elements:Button Grid.Row="1" Grid.Column="0" Title="Левая" Style="{StaticResource Button}"/>
+                <FPGA_Elements:Button Grid.Row="1" Grid.Column="2" Title="Правая" Style="{StaticResource Button}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -28,24 +77,22 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <local:ToggleButton Grid.Column="0" ButtonNumber="16"/>
-            <local:ToggleButton Grid.Column="1" ButtonNumber="15"/>
-            <local:ToggleButton Grid.Column="2" ButtonNumber="14"/>
-            <local:ToggleButton Grid.Column="3" ButtonNumber="13"/>
-            <local:ToggleButton Grid.Column="4" ButtonNumber="12"/>
-            <local:ToggleButton Grid.Column="5" ButtonNumber="11"/>
-            <local:ToggleButton Grid.Column="6" ButtonNumber="10"/>
-            <local:ToggleButton Grid.Column="7" ButtonNumber="9"/>
-            <local:ToggleButton Grid.Column="8" ButtonNumber="8"/>
-            <local:ToggleButton Grid.Column="9" ButtonNumber="7"/>
-            <local:ToggleButton Grid.Column="10" ButtonNumber="6"/>
-            <local:ToggleButton Grid.Column="11" ButtonNumber="5"/>
-            <local:ToggleButton Grid.Column="12" ButtonNumber="4"/>
-            <local:ToggleButton Grid.Column="13" ButtonNumber="3"/>
-            <local:ToggleButton Grid.Column="14" ButtonNumber="2"/>
-            <local:ToggleButton Grid.Column="15" ButtonNumber="1"/>
+            <FPGA_Elements:ToggleButton Grid.Column="0" ButtonNumber="16" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="1" ButtonNumber="15" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="2" ButtonNumber="14" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="3" ButtonNumber="13" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="4" ButtonNumber="12" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="5" ButtonNumber="11" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="6" ButtonNumber="10" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="7" ButtonNumber="9" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="8" ButtonNumber="8" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="9" ButtonNumber="7" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="10" ButtonNumber="6" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="11" ButtonNumber="5" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="12" ButtonNumber="4" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="13" ButtonNumber="3" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="14" ButtonNumber="2" Style="{StaticResource ToggleButton}"/>
+            <FPGA_Elements:ToggleButton Grid.Column="15" ButtonNumber="1" Style="{StaticResource ToggleButton}"/>
         </Grid>
-
-
     </Grid>
 </Page>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation;
 
-namespace FPGA_UI.Elements
+namespace FPGA_UI.Elements.FPGA
 {
     public partial class ToggleButton
     {

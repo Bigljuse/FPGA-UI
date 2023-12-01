@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace FPGA_UI.Elements.FPGA
 {
     /// <summary>
-    /// Логика взаимодействия для ToggleButton.xaml
+    /// Interaction logic for Button.xaml
     /// </summary>
-    public partial class ToggleButton : UserControl
+    public partial class Button : UserControl
     {
-        public ToggleButton()
+        public Button()
         {
             InitializeComponent();
-            DataContext = this;
         }
     }
 }
