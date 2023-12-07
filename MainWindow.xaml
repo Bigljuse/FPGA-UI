@@ -70,6 +70,7 @@
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border BorderThickness="0,0,0,1" BorderBrush="Black">
@@ -78,7 +79,7 @@
                 </Grid>
             </Border>
             <Frame Name="NavigationWindow_Pages" 
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Margin="2"
                     NavigationUIVisibility="Hidden"
                     Source="" >

@@ -7,7 +7,7 @@ namespace FPGA_UI.DataBases.FPGA.Tables
     {
         public UInt32 Id { get; set; }
 
-        public bool State { get; set; } = false;
+        public int State { get; set; } = 0;
 
         public string Mark { get; set; } = "Empty";
 

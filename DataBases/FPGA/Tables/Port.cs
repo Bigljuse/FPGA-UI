@@ -9,8 +9,8 @@ namespace FPGA_UI.DataBases.FPGA.Tables
 
         public string Mark { get; set; } = "Empty";
 
-        public object Device_Type { get; set; } = "Empty";
+        public string Device_Type { get; set; } = "Empty";
 
-        public object Power_State { get; set; } = false;
+        public int Power_State { get; set; } = 0;
     }
 }

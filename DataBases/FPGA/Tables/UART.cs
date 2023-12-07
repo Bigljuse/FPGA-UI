@@ -9,11 +9,11 @@ namespace FPGA_UI.DataBases.FPGA.Tables
 
         public int Baud { get; set; } = 9600;
 
-        public bool Start_Bit { get; set; } = true;
+        public int Start_Bit { get; set; } = 1;
 
-        public bool Stop_Bit { get; set; } = true;
+        public int Stop_Bit { get; set; } = 1;
 
-        public bool Hand_Shake { get; set; } = false;
+        public int Hand_Shake { get; set; } = 0;
 
         public int Package_Size { get; set; } = 8;
     }

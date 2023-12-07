@@ -16,33 +16,44 @@
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Margin="10,15,10,15">
+        <Rectangle x:Name="Rectangle_Status" Visibility="Hidden" Grid.Row="0" Fill="Green" Height="5"/>
+        <Grid Grid.Row="1" Margin="10,15,10,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button Name="Button_UpdateDataGrid"
                     Grid.Column="1"
-                    Content="Update"
                     Margin="4,0,2,0"
                     Background="White"
                     BorderThickness="2"
-                    Click="Button_UpdateDataGrid_Click">
+                    Click="Button_UpdateDataGrid_Click"
+                    Content="Обновить">
             </Button>
             <Button Name="Button_AddItem"
                     Grid.Column="2"
-                    Content="Add Item"
                     Margin="4,0,2,0"
                     Background="White"
                     BorderThickness="2"
-                    Click="Button_AddItem_Click">
+                    Click="Button_AddItem_Click"
+                    Content="Добавить">
+            </Button>
+            <Button Name="Button_Delete"
+                    Grid.Column="3"
+                    Margin="4,0,2,0"
+                    Background="White"
+                    BorderThickness="2"
+                    Click="Button_Delete_Click"
+                    Content="Удалить">
             </Button>
         </Grid>
         <DataGrid Name="DataGrid_Table" 
-                  Grid.Row="1" 
+                  Grid.Row="2" 
                   CanUserReorderColumns="False" 
                   CanUserResizeColumns="False" 
                   CanUserAddRows="False" 

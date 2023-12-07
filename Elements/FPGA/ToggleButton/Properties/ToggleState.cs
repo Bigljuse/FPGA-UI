@@ -12,22 +12,22 @@ namespace FPGA_UI.Elements.FPGA
     {
         public static readonly DependencyProperty ToggleStateProperty = DependencyProperty.Register(
             nameof(ToggleState),
-            typeof(bool),
+            typeof(int),
             typeof(ToggleButton),
-            new UIPropertyMetadata(false, new PropertyChangedCallback(ToggleStatePropertyChanged)));
+            new UIPropertyMetadata(0, new PropertyChangedCallback(ToggleStatePropertyChanged)));
 
-        public bool ToggleState
+        public int ToggleState
         {
-            get => (bool)GetValue(ToggleStateProperty);
+            get => (int)GetValue(ToggleStateProperty);
             set => SetValue(ToggleStateProperty, value);
         }
 
         protected static void ToggleStatePropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs args)
         {
             ToggleButton toggleButton = (ToggleButton)dependencyObject;
-            bool toggleState = (bool)args.NewValue;
+            int toggleState = (int)args.NewValue;
 
-            if (toggleState == true)
+            if (toggleState == 1)
                 toggleButton.Rectangle_BlackToggle.Margin = new Thickness(0,40,0,0);
             else
                 toggleButton.Rectangle_BlackToggle.Margin = new Thickness(0,10,0,0);

@@ -7,14 +7,17 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page_UART"
-      FontSize="18">
+      FontSize="18"
+      Loaded="Page_Loaded">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
+        <Rectangle x:Name="Rectangle_Status" Visibility="Hidden" Grid.Row="1" Fill="Green" Height="5"/>
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -29,7 +32,7 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Скорость передачи данных(Baud Rate)"/>
-                    <ComboBox Grid.Column="2" Width="150">
+                    <ComboBox Grid.Column="2" Width="150" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType=local:Page_UART}, Path=UART.Baud}">
                         <system:Int32>600</system:Int32>
                         <system:Int32>1200</system:Int32>
                         <system:Int32>2400</system:Int32>
@@ -55,7 +58,7 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Размер пакета данных(Package Size)"/>
-                    <ComboBox Grid.Column="2" Width="150">
+                    <ComboBox Grid.Column="2" Width="150" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType=local:Page_UART}, Path=UART.Package_Size}">
                         <system:Int32>5</system:Int32>
                         <system:Int32>6</system:Int32>
                         <system:Int32>7</system:Int32>
@@ -70,8 +73,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Чётность(Parity)"/>
-                    <ComboBox Grid.Column="2" Width="150">
+                    <TextBlock Text="Чётность(Parity)" IsEnabled="False"/>
+                    <ComboBox Grid.Column="2" Width="150" IsEnabled="False">
                         <system:String>Выключено</system:String>
                         <system:String>Чётная единица</system:String>
                         <system:String>Нечётная единица</system:String>
@@ -86,21 +89,20 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Биты окончания посылки пакета(Stop bits)"/>
-                    <ComboBox Grid.Column="2" Width="150">
-                        <system:Double>1</system:Double>
-                        <system:Double>1.5</system:Double>
-                        <system:Double>2</system:Double>
+                    <ComboBox Grid.Column="2" Width="150" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType=local:Page_UART}, Path=UART.Stop_Bit}">
+                        <system:Int32>0</system:Int32>
+                        <system:Int32>1</system:Int32>
                     </ComboBox>
                 </Grid>
             </Border>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Content="Сохранить" Margin="5,5,10,10" Padding="10,3,10,3"/>
+            <Button Grid.Column="2" Content="Сохранить" Margin="5,5,10,10" Padding="10,3,10,3" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Page>

@@ -9,7 +9,7 @@ namespace FPGA_UI.DataBases.FPGA.Tables
 
         public string Mark { get; set; } = "Empty";
 
-        public bool Toggled { get; set; } = false;
+        public int Toggled { get; set; } = 0;
 
         public int Device_Id { get; set; } = 0;
     }

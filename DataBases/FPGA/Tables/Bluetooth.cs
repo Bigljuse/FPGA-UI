@@ -7,7 +7,7 @@ namespace FPGA_UI.DataBases.FPGA.Tables
     {
         public UInt32 Id { get; set; }
 
-        public bool Connectioned_To_Device { get; set; } = false;
+        public int Connectioned_To_Device { get; set; } = 0;
 
         public string Mac_Address { get; set; } = "Empty";
 

@@ -74,7 +74,7 @@ namespace FPGA_UI.DataBases.FPGA
                     new MySqlColumnModel(){ Name = "Request_Time", DataType = MySqlDataTypeEnum.LONGTEXT},
                     new MySqlColumnModel(){ Name = "Response_Time", DataType = MySqlDataTypeEnum.LONGTEXT},
                     new MySqlColumnModel(){ Name = "Temperature", DataType = MySqlDataTypeEnum.LONGTEXT},
-                    new MySqlColumnModel(){ Name = "Critical Temperature", DataType = MySqlDataTypeEnum.LONGTEXT},
+                    new MySqlColumnModel(){ Name = "Critical_Temperature", DataType = MySqlDataTypeEnum.LONGTEXT},
                     new MySqlColumnModel(){ Name = "Device_Id", DataType = MySqlDataTypeEnum.INT, Not_Null = true},
                     new MySqlColumnModel(){ Name = "UART_Id", DataType = MySqlDataTypeEnum.INT, Not_Null = true}
                 }
@@ -85,8 +85,8 @@ namespace FPGA_UI.DataBases.FPGA
                 new MySqlColumnModel[]
                 {
                     new MySqlColumnModel(){ Name = "Id", DataType = MySqlDataTypeEnum.INT, Primary_Key = true, Auto_Increment = true, Unsigned = true},
-                    new MySqlColumnModel(){ Name = "Toggled", DataType = MySqlDataTypeEnum.BIT},
                     new MySqlColumnModel(){ Name = "Mark", DataType = MySqlDataTypeEnum.LONGTEXT},
+                    new MySqlColumnModel(){ Name = "Toggled", DataType = MySqlDataTypeEnum.BIT},
                     new MySqlColumnModel(){ Name = "Device_Id", DataType = MySqlDataTypeEnum.INT, Not_Null = true}
                 }
             },

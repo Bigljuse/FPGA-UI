@@ -32,7 +32,7 @@ namespace FPGA_UI.Pages
         private void Button_Authorize_Click(object sender, RoutedEventArgs e)
         {
             string login = TextBox_Login.Text;
-            string password = TextBox_Password.Text;
+            string password = PasswordBox_Password.Password;
             Account.Authorize(login, password);
         }
 

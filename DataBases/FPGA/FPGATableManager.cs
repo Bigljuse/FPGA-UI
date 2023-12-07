@@ -1,10 +1,14 @@
 ﻿using FPGA_UI.DataBases.FPGA.Enums;
 using MySqlLibrary;
+using MySqlLibrary.MySql.Commands.DELETE;
 using MySqlLibrary.MySql.Commands.INSERT;
 using MySqlLibrary.MySql.Commands.SELECT;
+using MySqlLibrary.MySql.Commands.UPDATE;
 using MySqlLibrary.MySql.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace FPGA_UI.DataBases.FPGA
 {
@@ -50,14 +54,35 @@ namespace FPGA_UI.DataBases.FPGA
             return true;
         }
 
-        internal List<object> SQLSelectAllColumns()
+        internal List<object> SQLSelectAllColumns(int limit = 0)
         {
             string[] allColumns = new[] { "*" };
 
             Type tableType = FPGATablesDictionaries.GetTableType(p_tableName);
-            List<object> columns = MySqlSelectColumns.Execute(p_MySqlDatabaseConfiguration, tableType, allColumns);
+            List<object> columns = MySqlSelectColumns.Execute(p_MySqlDatabaseConfiguration, tableType, allColumns, limit);
 
             return columns;
+        }
+
+        internal int SQLUpdateLine(IFPGATable line)
+        {
+            object[] arguments = line.GetPropertiesAsArguments();
+            Type tableType = FPGATablesDictionaries.GetTableType(p_tableName);
+
+            int id = 0;
+            object? objectId = line.GetPropertyValueByName("Id");
+            id = Convert.ToInt32(objectId);
+
+            return MySqlUpdate.Execute(p_MySqlDatabaseConfiguration, tableType, p_columnsNames, arguments, id);
+        }
+
+        internal void SQLDeleteLine(IFPGATable line)
+        {
+            int id = 0;
+            object? objectId = line.GetPropertyValueByName("Id");
+            id = Convert.ToInt32(objectId);
+
+            MySqlDelete.Execute(p_MySqlDatabaseConfiguration, p_tableName.ToString(), id);
         }
     }
 }
