@@ -38,6 +38,8 @@ namespace FPGA_UI.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            p_fpgaManager.UseDataBase();
+            p_fpgaTableManager = p_fpgaManager.GetTableManager(Table);
             Rectangle_Status.Visibility = Visibility.Hidden;
         }
 

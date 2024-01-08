@@ -8,13 +8,12 @@ namespace FPGA_UI.DataBases.FPGA
         private readonly MySqlDatabaseConfiguration p_mySqlDatabaseConfiguration;
         private readonly FPGATablesConfiguration p_fpgaTablesConfiguration;
         private FPGATableManager? p_fpgaTableManger = null;
+        private readonly string p_FPGA_Name = "fpga";
 
         internal FPGAManager()
         {
-            string dataBaseName = DataBasesNamesEnum.FPGA.ToString();
-
             p_mySqlDatabaseConfiguration = new("server=localhost;user=root;port=3306;password=(E132450qwe)");
-            p_mySqlDatabaseConfiguration.UseDataBase(dataBaseName);
+            p_mySqlDatabaseConfiguration.UseDataBase(p_FPGA_Name);
 
             p_fpgaTablesConfiguration = new(p_mySqlDatabaseConfiguration);
             p_fpgaTablesConfiguration.CreateTablesIfNotExist();
@@ -29,6 +28,11 @@ namespace FPGA_UI.DataBases.FPGA
                 return p_fpgaTableManger;
 
             return p_fpgaTableManger = new FPGATableManager(p_mySqlDatabaseConfiguration, tableName);
+        }
+
+        internal void UseDataBase()
+        {
+            p_mySqlDatabaseConfiguration.UseDataBase(p_FPGA_Name);
         }
     }
 }

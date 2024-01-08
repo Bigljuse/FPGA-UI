@@ -27,6 +27,7 @@ namespace FPGA_UI.DataBases.FPGA
 
         private string[] GetColumnsNames()
         {
+            p_MySqlDatabaseConfiguration.UseDataBase("fpga");
             MySqlColumnModel[] tableColumns = FPGATablesDictionaries.GetTableColumns(p_tableName);
             string[] columnsNames = new string[tableColumns.Length];
             MySqlColumnModel tableColumn;
@@ -47,6 +48,7 @@ namespace FPGA_UI.DataBases.FPGA
 
         internal bool SQLInsertLine(IFPGATable columnInterface)
         {
+            p_MySqlDatabaseConfiguration.UseDataBase("fpga");
             object[] arguments = columnInterface.GetPropertiesAsArguments();
 
             MySqlInsertInto.Execute(p_MySqlDatabaseConfiguration, p_tableName.ToString(), p_columnsNames, arguments);
@@ -56,6 +58,7 @@ namespace FPGA_UI.DataBases.FPGA
 
         internal List<object> SQLSelectAllColumns(int limit = 0)
         {
+            p_MySqlDatabaseConfiguration.UseDataBase("fpga");
             string[] allColumns = new[] { "*" };
 
             Type tableType = FPGATablesDictionaries.GetTableType(p_tableName);
@@ -66,6 +69,7 @@ namespace FPGA_UI.DataBases.FPGA
 
         internal int SQLUpdateLine(IFPGATable line)
         {
+            p_MySqlDatabaseConfiguration.UseDataBase("fpga");
             object[] arguments = line.GetPropertiesAsArguments();
             Type tableType = FPGATablesDictionaries.GetTableType(p_tableName);
 
@@ -78,6 +82,7 @@ namespace FPGA_UI.DataBases.FPGA
 
         internal void SQLDeleteLine(IFPGATable line)
         {
+            p_MySqlDatabaseConfiguration.UseDataBase("fpga");
             int id = 0;
             object? objectId = line.GetPropertyValueByName("Id");
             id = Convert.ToInt32(objectId);
